@@ -1,6 +1,6 @@
 public with sharing class ProjectTriggerClass {
     
-    public void insertProjects(List<Project__c> projects){ //Site : Pharma (10, 2), Agri(5, 0), Banking(5), Gov(20), Non-Gov
+    public void insertProjects(List<Project__c> projects){
         
         Map<ID, Site__c> flag = new Map<ID, Site__c>();
         

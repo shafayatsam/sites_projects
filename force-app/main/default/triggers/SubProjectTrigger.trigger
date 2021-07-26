@@ -1,6 +1,15 @@
-trigger SubProjectTrigger on SubProject__c (before insert) {
-    //Assumtions we made
-    //1. SubProject Start has a Date then Project Start will Have the date
-    //2. SubProject
-
+trigger SubProjectTrigger on SubProject__c (after insert, after update, after delete) {
+    
+    SubProjectTriggerHandler spth = new SubProjectTriggerHandler();
+    
+    if(Trigger.isAfter){
+        if(Trigger.isInsert){
+            spth.isInsertSubProject(Trigger.new);
+        }
+        else if(Trigger.isUpdate){
+            spth.isUpdateSubProject(Trigger.new);
+        }else if(Trigger.isDelete){
+            spth.isDeleteSubProject(Trigger.old);
+        }
+    }
 }
