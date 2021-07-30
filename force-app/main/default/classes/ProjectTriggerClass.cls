@@ -8,7 +8,7 @@ public with sharing class ProjectTriggerClass {
         For(Project__c project : projects){
             siteId.add(project.Site__c);
         }        
-        List<Site__c> parentSites = [SELECT Id, (SELECT Site__c, In_Service_A__c FROM Projects__r) FROM Site__c WHERE Id IN :siteId];        
+        List<Site__c> parentSites = [SELECT Id, Site_Status__c, (SELECT Site__c, In_Service_A__c, Site__r.Site_Status__c FROM Projects__r) FROM Site__c WHERE Id IN :siteId];        
         
         for(Site__c s : parentSites){
             Site__c siteAdd = new Site__c();

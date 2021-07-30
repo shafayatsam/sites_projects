@@ -1,0 +1,22 @@
+<apex:page controller="AccountCustomController" title="Welcome Page">
+    <apex:form style="margin: 10px">
+        <apex:pageBlock title="Account Info">
+        	<apex:pageBlockSection title="Account Information">
+                <apex:inputField value="{!accobj.Name}"/>
+                <apex:inputField value="{!accobj.Type}"/>
+                <apex:inputField value="{!accobj.Rating}"/>
+                <apex:inputField value="{!accobj.Phone}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Additional Information">
+                <apex:inputField value="{!accobj.CustomerPriority__c}"/>
+                <apex:inputField value="{!accobj.NumberofLocations__c}"/>
+                <apex:inputField value="{!accobj.SLAExpirationDate__c}"/>
+                <apex:inputField value="{!accobj.SLASerialNumber__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+            	<apex:commandButton value="Save" action="{!saveAccount}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>

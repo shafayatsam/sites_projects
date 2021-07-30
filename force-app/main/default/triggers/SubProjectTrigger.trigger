@@ -8,7 +8,8 @@ trigger SubProjectTrigger on SubProject__c (after insert, after update, after de
         }
         else if(Trigger.isUpdate){
             spth.isUpdateSubProject(Trigger.new);
-        }else if(Trigger.isDelete){
+        }
+        else if(Trigger.isDelete){
             spth.isDeleteSubProject(Trigger.old);
         }
     }

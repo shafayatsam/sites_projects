@@ -1,0 +1,29 @@
+<apex:page standardController="Account" recordSetVar="accList" extensions="AccountWithExtention">
+    <apex:form >
+    	<apex:pageBlock title="Account Info">
+        	<apex:pageBlockSection title="Account Information">
+                <apex:inputField value="{!Account.Name}"/>
+                <apex:inputField value="{!Account.Type}"/>
+                <apex:inputField value="{!Account.Rating}"/>                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Additional Information">
+                <apex:inputField value="{!Account.CustomerPriority__c}"/>
+                <apex:inputField value="{!Account.NumberofLocations__c}"/>
+                <apex:inputField value="{!Account.SLAExpirationDate__c}"/>
+                <apex:inputField value="{!Account.SLASerialNumber__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+            	<apex:commandButton value="Save" action="{!save}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Accounts">
+            <apex:pageBlockTable value="{!accList}" var="acc">
+            	<apex:column value="{!acc.Name}"/>
+                <apex:column value="{!acc.Type}"/>
+                <apex:column value="{!acc.Rating}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+    </apex:form>
+</apex:page>
